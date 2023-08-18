@@ -1,45 +1,5 @@
 // API TEST
 
-// https://dog.ceo/api/breed/Chihuahua/image/random
-
-console.log("run first");
-
-const dogImage = document.getElementById("dogImage");
-const getImage = document.getElementById("generate");
-
-const getDogImage = () => {
-  fetch("https://dog.ceo/api/breeds/image/random")
-    .then((resp) => {
-      if (!resp.ok) {
-        throw new Error("Failed to Fetch Image");
-      }
-      return resp.json();
-    })
-    .then(
-      (json) =>
-        (dogImage.innerHTML = `<img src='${json.message}' height=300 width=300 style='padding: 20px'/>`)
-    )
-    .catch((error) => console.error(error));
-};
-
-getImage.onclick = () => getDogImage();
-
-/* console.log(fetch("https://dog.ceo/api/breeds/image/random")); */
-
-const promise1 = Promise.resolve(`First Promise's Value`);
-const promise2 = new Promise((resolve) => {
-  setTimeout(resolve, 3000, `Second Promise's Value`);
-});
-const promise3 = new Promise((res) =>
-  setTimeout(res, 2000, `Third Promise's Value `)
-);
-
-const getPromise = Promise.all([promise1, promise2, promise3]);
-
-getPromise.then((values) => {
-  values.forEach((value) => console.log(value));
-});
-
 // https://superheroapi.com/api/access-token/id
 // 858743342537599
 
@@ -96,17 +56,13 @@ randomSuperhero.onclick = () => {
 const getSearchedSuperhero = async (SuperheroName) => {
   const response = await fetch(`${URL_BASE}/search/${SuperheroName}`);
   try {
-    if (!response.ok) {
-      throw new Error("Failed To fetch image URL");
-    }
+    if (!response.ok) throw new Error("Failed To Fetch Superhero API");
     const json = await response.json();
     const hero = json.results[0];
-    const heroName = hero.name;
+    getHeroData(hero);
 
-    superhero.innerHTML = `${heroName}<img src="${hero.image.url}" height=200 width=200 class="imageSuperhero"/>`;
-    superhero.innerHTML += `<p>Intelligence : ${hero.powerstats.intelligence}</p>`;
-
-    console.log("Hero Stats : ", hero.powerstats);
+    console.log("Hero Appearance :", hero.appearance);
+    console.log(`Hero Stats : `, hero.powerstats);
   } catch (e) {
     console.error(e.message);
   }
