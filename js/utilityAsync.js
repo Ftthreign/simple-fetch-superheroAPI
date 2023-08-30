@@ -46,9 +46,9 @@ const getNumberSuperhero = () => {
   return Math.floor(Math.random() * numberSuperhero) + 1;
 };
 
-randomSuperhero.onclick = () => {
-  getSuperhero(getNumberSuperhero());
-};
+randomSuperhero.addEventListener('click', ()=>{
+  getSuperhero(getNumberSuperhero())
+});
 
 // Search Button
 const getSearchedSuperhero = async (SuperheroName) => {
