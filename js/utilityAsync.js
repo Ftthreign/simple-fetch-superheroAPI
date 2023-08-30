@@ -12,9 +12,7 @@ const randomSuperhero = document.getElementById("generateRandom");
 const getSuperhero = async (id) => {
   try {
     const response = await fetch(`${URL_BASE}/${id}`);
-    if (!response.ok) {
-      throw new Error("Failed To fetch image URL");
-    }
+    if (!response.ok) throw new Error("Failed to fetch image URL");
     const json = await response.json();
     getHeroData(json);
   } catch (e) {
