@@ -1,7 +1,7 @@
 # simple-consume-superheroAPI
 
-⋅⋅⋅With URL BASE, You Should Login at [Superhero API Website](https://superheroapi.com/)⋅⋅
-⋅⋅⋅then, you can get your Access token 
+With URL BASE, You Should Login at [Superhero API Website](https://superheroapi.com/)
+then, you can get your Access token 
 
 
 ```javascript
