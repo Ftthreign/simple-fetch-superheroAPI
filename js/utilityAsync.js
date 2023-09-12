@@ -12,7 +12,7 @@ const randomSuperhero = document.getElementById("generateRandom");
 const getSuperhero = async (id) => {
   try {
     const response = await fetch(`${URL_BASE}/${id}`);
-    if (!response.ok) throw new Error("Failed to fetch image URL");
+    // if (!response.ok) throw new Error("Failed to fetch image URL");
     const json = await response.json();
     getHeroData(json);
   } catch (e) {
@@ -54,7 +54,7 @@ randomSuperhero.addEventListener('click', ()=>{
 const getSearchedSuperhero = async (SuperheroName) => {
   const response = await fetch(`${URL_BASE}/search/${SuperheroName}`);
   try {
-    if (!response.ok) throw new Error("Failed To Fetch Superhero API");
+    // if (!response.ok) throw new Error("Failed To Fetch Superhero API");
     const json = await response.json();
     const hero = json.results[0];
     getHeroData(hero);
